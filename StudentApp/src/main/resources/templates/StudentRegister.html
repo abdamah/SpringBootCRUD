@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+<body>
+    <div th:insert="fragments/header::header"></div>
+    <div th:insert="fragments/menu::menu"></div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-primary">Student Registration Form</h2>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/student/save}" id="std" method="POST" th:object="${student}">
+                    <!-- group#1 -->
+                    <div class="row pb-3">
+                        <div class="col-2">
+                            <label for="name">Student Name</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="name" name="name" class="form-control" th:field="*{sname}">
+                        </div>
+                        <div class="col-6">
+                            <span id="nameError" class="text-danager"></span>
+                        </div>
+                    </div>
+                    <div class="row pb-3 ">
+                        <div class="col-2 ">
+                            <label for="gender">Student Gender</label>
+                        </div>
+                        <div class="col-4">
+                            <span class="col-6">
+                                <input type="radio" id="gender" name="gender" th:field="*{gender}" value="Male"
+                                    class="form-check-input">Male
+                            </span>
+                            <span class="col-6">
+                                <input type="radio" id="gender" name="gender" th:field="*{gender}" value="Female"
+                                    class="form-check-input">Female
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span id="genderError"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row pb-3">
+                        <div class="col-2">
+                            <label for="course">Student Course</label>
+                        </div>
+                        <div class="col-4">
+                            <select th:field="*{course}" class="form-control" name="course" id="course">
+                                <option value="">-SELECT-</option>
+                                <option value="SPRING">SPRING</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="DB">DB</option>
+                                <option value="ANGULAR">ANGULAR</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <span id="courseError"></span>
+                        </div>
+                    </div>
+                    <!-- group#3 -->
+                    <div class="row pb-3">
+                        <div class="col-2">
+                            <label for="address">Student Address</label>
+                        </div>
+                        <div class="col-4">
+                            <textarea th:field="*{saddr}" name="address" id="address" class="form-control"></textarea>
+                        </div>
+                        <div class="colo-6">
+                            <span id="addressError"></span>
+                        </div>
+                    </div>
+
+                    <!-- group#4 -->
+                    <div class="form-group">
+                        <div>
+                            <input type="submit" value="Register" class="btn btn-success btn-lg">
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div th:if="${message!=null}">
+                <div class="card-footer text-success">
+                    <b><span th:text="${message}"></span></b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

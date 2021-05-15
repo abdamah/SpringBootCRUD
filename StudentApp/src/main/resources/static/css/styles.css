@@ -1,0 +1,11 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: #F31E29!important;	
+    
+}
+.navbar-light .navbar-brand {
+    color: rgba(255, 255, 255,1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:  rgba(255, 255, 255,1);
+}
